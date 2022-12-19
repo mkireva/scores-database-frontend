@@ -1,7 +1,7 @@
 import Scores from "./scores/page";
 import { IScore } from "../typings";
 import { getScores } from "./utils/server";
-import Search from "./search";
+import Search from "./Search";
 
 export default async function Home() {
   const scores = await getScores();
