@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { PageProps } from "../../../typings";
 import { getScoresById } from "../../utils/server";
 import Accordeon from "./Accordeon";
-
+import UpdateScore from "./UpdateScore";
 export const dynamicParams = true;
 
 async function ScorePage({ params: { scoreId } }: PageProps) {
@@ -11,7 +11,9 @@ async function ScorePage({ params: { scoreId } }: PageProps) {
 
   return (
     <div className="mt-34 pl-5 pr-5 container md:container md:mx-auto mt-10">
+      <div className="mb-10"></div>
       <Accordeon score={score} />
+      <UpdateScore score={score} />
       <div className="h-96 p-20">
         <div className="h-full">{score.url}</div>
       </div>

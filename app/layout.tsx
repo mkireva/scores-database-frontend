@@ -19,11 +19,11 @@ export default function RootLayout({
       <body>
         <header className="flex w-full p-5 justify-between text-sm text-gray-700">
           <div className="flex space-x-4 items-center">
-            <Link href="/about">
-              <p className="link">About the project</p>
+            <Link href="/">
+              <p className="link">Home</p>
             </Link>
-            <Link href="/store">
-              <p className="link">Store</p>
+            <Link href="/about">
+              <p className="link">About </p>
             </Link>
           </div>
           <div className="flex space-x-4 items-center">

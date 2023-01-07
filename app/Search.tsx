@@ -1,4 +1,10 @@
-import { MicrophoneIcon, MusicalNoteIcon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import {
+  MicrophoneIcon,
+  MusicalNoteIcon,
+  MagnifyingGlassIcon,
+  DocumentPlusIcon,
+} from "@heroicons/react/24/solid";
+import Link from "next/link";
 
 export default function search() {
   return (
@@ -16,7 +22,7 @@ export default function search() {
       </div>
       <div className="flex flex-col w=1/2 space-y-2 justify-center mt-8 sm:space-y-0 sm:flex-row sm:space-x-4">
         <button className="btn">Song Search</button>
-        <button className="btn">I am feeling Lucky</button>
+        <button className="btn">I am Feeling lucky</button>
       </div>
     </form>
   );

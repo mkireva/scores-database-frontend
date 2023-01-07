@@ -1,5 +1,7 @@
+import { DocumentPlusIcon, PencilIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
-import { IPropsScore, IScore } from "../../typings";
+import { IPropsScore } from "../../typings";
+import DeleteScore from "./DeleteScoreItem";
 
 export default function ScoresPage(props: IPropsScore) {
   const { score } = props;
@@ -10,8 +12,8 @@ export default function ScoresPage(props: IPropsScore) {
           <div className="p-7">
             <div className="font-bold text-sky-600 mb-4 uppercase">
               <Link href={`/scores/${score.scoreId}`}>
-                <div>{score.title}</div>
-                <div className="font-semibold text-sm">{score.subTitle}</div>
+                <h1>{score.title}</h1>
+                <h2 className="font-semibold text-sm">{score.subTitle}</h2>
               </Link>
             </div>
             <p className="text-gray-700 text-base">
@@ -24,7 +26,7 @@ export default function ScoresPage(props: IPropsScore) {
               <strong>date:</strong> {score.createdAt}
             </p>
           </div>
-          <div className="px-6 pt-4 pb-2">
+          <div className="px-6 pt-4">
             <span className="inline-block bg-sky-200 rounded-full px-3 py-1 text-sm font-semibold text-sky-700 mr-2 mb-2">
               #{score.color}
             </span>
@@ -34,6 +36,13 @@ export default function ScoresPage(props: IPropsScore) {
             <span className="inline-block bg-sky-200 rounded-full px-3 py-1 text-sm font-semibold text-sky-700 mr-2 mb-2 lowercase">
               #{score.category}
             </span>
+          </div>
+          <div className="flex w-full p-3 justify-between">
+            <PencilIcon className="h-6 w-6 text-grey-500" />
+            <Link href="/addscore">
+              <DocumentPlusIcon className="h-6 w-6 text-grey-500" />
+            </Link>
+            <DeleteScore score={score} />
           </div>
         </div>
       </div>
