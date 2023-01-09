@@ -14,19 +14,6 @@ export const getScoresById = async (scoreId: string) => {
   return score;
 };
 
-export const updateScore = async (score: IScore) => {
-  const res = await fetch(`http://localhost:8000/api/scores/${score.scoreId}`, {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-    cache: "no-store",
-    method: "PATCH",
-    body: JSON.stringify({ value: score }),
-  });
-  return res.json();
-};
-
 export const deleteScore = async (scoreId: string) => {
   const res = await fetch(`http://localhost:8000/api/scores/${scoreId}`, {
     cache: "no-store",

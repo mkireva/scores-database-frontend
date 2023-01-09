@@ -12,7 +12,7 @@ export default function ScoresPage(props: IPropsScore) {
           <div className="p-7">
             <div className="font-bold text-sky-600 mb-4 uppercase">
               <Link href={`/scores/${score.scoreId}`}>
-                <h1>{score.title}</h1>
+                <h1 className="font-bold">{score.title}</h1>
                 <h2 className="font-semibold text-sm">{score.subTitle}</h2>
               </Link>
             </div>
@@ -38,7 +38,6 @@ export default function ScoresPage(props: IPropsScore) {
             </span>
           </div>
           <div className="flex w-full p-3 justify-between">
-            <PencilIcon className="h-6 w-6 text-grey-500" />
             <Link href="/addscore">
               <DocumentPlusIcon className="h-6 w-6 text-grey-500" />
             </Link>

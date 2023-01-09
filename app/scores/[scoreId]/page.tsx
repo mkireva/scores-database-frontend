@@ -3,8 +3,6 @@ import { PageProps } from "../../../typings";
 import { getScoresById } from "../../utils/server";
 import Accordeon from "./Accordeon";
 import UpdateScore from "./UpdateScore";
-export const dynamicParams = true;
-
 async function ScorePage({ params: { scoreId } }: PageProps) {
   const score = await getScoresById(scoreId);
   if (!score.scoreId) return notFound();
