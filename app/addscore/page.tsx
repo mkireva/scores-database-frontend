@@ -3,6 +3,8 @@
 import { useRouter } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
+import {BASE_URL} from "./../utils/server"
+
 
 export default function CreateScore() {
   const [scoreId, setScoreId] = useState<string>("");
@@ -21,8 +23,11 @@ export default function CreateScore() {
 
   const router = useRouter();
 
-  const createScore = async () => {
-    await fetch("http://localhost:8000/api/scores", {
+ 
+
+  const createScore = async (e: React.SyntheticEvent) => {
+    e.preventDefault(),
+    await fetch(`${BASE_URL}`, {
       cache: "no-store",
       headers: {
         "Content-Type": "application/json",

@@ -4,6 +4,7 @@ import { useRouter } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
 import { useState, useTransition } from "react";
 import { IPropsScore } from "../../../typings";
+import { BASE_URL } from "../../utils/server";
 
 export default function UpdateScore(props: IPropsScore) {
   const { score } = props;
@@ -25,9 +26,10 @@ export default function UpdateScore(props: IPropsScore) {
   const isMutating = isFetching || isPending;
   const router = useRouter();
 
-  const updateScore = async () => {
+  const updateScore = async (e: React.SyntheticEvent ) => {
+     e.preventDefault();
     setIsFetching(true);
-    await fetch(`http://localhost:8000/api/scores/${score.scoreId}`, {
+    await fetch(`${BASE_URL}/${score.scoreId}`, {
       cache: "no-store",
       headers: {
         "Content-Type": "application/json",
@@ -64,7 +66,6 @@ export default function UpdateScore(props: IPropsScore) {
     setDescription("");
     setScoreId(uuidv4());
     setIsFetching(false);
-
     startTransition(() => {
       router.refresh();
     });

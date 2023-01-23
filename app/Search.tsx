@@ -2,9 +2,8 @@ import {
   MicrophoneIcon,
   MusicalNoteIcon,
   MagnifyingGlassIcon,
-  DocumentPlusIcon,
 } from "@heroicons/react/24/solid";
-import Link from "next/link";
+
 
 export default function search() {
   return (
