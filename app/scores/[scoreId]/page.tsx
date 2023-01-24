@@ -1,8 +1,10 @@
 import { notFound } from "next/navigation";
 import { PageProps } from "../../../typings";
+import Osmd from "../../lib/page";
 import { getScoresById } from "../../utils/server";
 import Accordeon from "./Accordeon";
 import UpdateScore from "./UpdateScore";
+import sampleFile from "../../../public/Beethoven.xml";
 async function ScorePage({ params: { scoreId } }: PageProps) {
   const score = await getScoresById(scoreId);
   if (!score.scoreId) return notFound();
@@ -10,8 +12,9 @@ async function ScorePage({ params: { scoreId } }: PageProps) {
   return (
     <div className="mt-34 pl-5 pr-5 container md:container md:mx-auto mt-10">
       <div className="mb-10">
-      <Accordeon score={score} />
+        <Accordeon score={score} />
       </div>
+      <Osmd file={sampleFile} />
       <UpdateScore score={score} />
       <div className="h-96 p-20">
         <div className="h-full">{score.url}</div>
